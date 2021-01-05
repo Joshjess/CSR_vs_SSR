@@ -1,189 +1,77 @@
 import React from 'react';
 import Head from 'next/head';
+import Navmenu from '@/components/common/Navmenu';
+import Layout, { Footer } from 'antd/lib/layout/layout';
+import Image from 'next/image';
+import { Typography, Row, Col } from 'antd';
 
-import Title from '@/components/Title';
+const imageUrl = `https://images.pexels.com/photos/754949/pexels-photo-754949.jpeg?cs=srgb&dl=pexels-simon-matzinger-754949.jpg&fm=jpg`;
+
+const { Title } = Typography;
 
 const Home: React.FC = () => (
-  <div className="container">
+  <Layout>
     <Head>
-      <title>Create Next App</title>
-      <link rel="icon" href="/favicon.ico" />
+      <meta httpEquiv="cache-control" content="no-cache" />
+      <meta httpEquiv="expires" content="0" />
+      <meta httpEquiv="pragma" content="no-cache" />
     </Head>
-
-    <main>
-      <Title />
-
-      <p className="description">
-        Get started by editing <code>pages/index.js</code>
-      </p>
-
-      <p className="description">This is not an official starter!</p>
-
-      <div className="grid">
-        <a href="https://nextjs.org/docs" className="card">
-          <h3>Documentation &rarr;</h3>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a href="https://nextjs.org/learn" className="card">
-          <h3>Learn &rarr;</h3>
-          <p>Learn about Next.js in an interactive course with quizzes!</p>
-        </a>
-
-        <a
-          href="https://github.com/zeit/next.js/tree/master/examples"
-          className="card"
-        >
-          <h3>Examples &rarr;</h3>
-          <p>Discover and deploy boilerplate example Next.js projects.</p>
-        </a>
-
-        <a
-          href="https://zeit.co/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className="card"
-        >
-          <h3>Deploy &rarr;</h3>
+    <Navmenu page={1} />
+    <Layout>
+      <div className="container">
+        <div id="title-header">
+          <Title level={2}>
+            Client Side Rendering vs Server Side Rendering
+          </Title>
           <p>
-            Instantly deploy your Next.js site to a public URL with ZEIT Now.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in
+            tortor eros. Quisque vulputate maximus consectetur. Quisque
+            convallis ut velit eget consequat. In euismod quis mauris in porta.
+            Cras ut nulla eu enim ornare cursus ut a justo. Mauris tempor nibh
+            sed dapibus fringilla. Sed pellentesque nulla erat, dictum lobortis
+            ante molestie ut. Nunc tristique eleifend sem non pretium. Ut
+            interdum erat finibus massa pulvinar imperdiet. Curabitur a est nec
+            ante dictum tristique nec vitae tortor. Suspendisse non magna
+            molestie, tincidunt sem hendrerit, faucibus dolor. Fusce dignissim
+            blandit sapien, eu finibus ligula dictum vel. Ut nec lorem velit.
+            Praesent dapibus viverra sapien id fringilla.
           </p>
-        </a>
+          <p>
+            Duis nunc nisi, rhoncus eu libero viverra, tempus consequat massa.
+            Fusce pellentesque purus at fringilla consectetur. Proin in dolor
+            vitae justo vulputate suscipit nec non arcu. Donec dapibus dui non
+            augue aliquet ultricies. Nullam a sollicitudin lacus. Aliquam a
+            tellus in metus convallis pulvinar ac eget odio. Donec est ex, porta
+            eget tincidunt in, laoreet nec diam.
+          </p>
+          <p>
+            Suspendisse tellus sem, sollicitudin pulvinar odio eget, blandit
+            pharetra magna. Suspendisse lobortis mattis nisl, at sagittis dui
+            commodo et. Proin et erat eu dui semper auctor ut at dui. Maecenas
+            nisl neque, fermentum tincidunt fringilla quis, consequat sed nisl.
+            Morbi non justo purus. Etiam in tempor sapien. Nunc ornare nisi
+            libero, non maximus lorem vestibulum et. Mauris ullamcorper, nulla
+            et vehicula ullamcorper, nibh enim molestie massa, non rhoncus leo
+            massa sit amet lorem. Cras eleifend scelerisque porta. Fusce rutrum,
+            risus eget lobortis tempor, enim eros scelerisque quam, eget
+            elementum purus erat et nisl. Proin sit amet dolor at est sodales
+            elementum ut quis ex. Fusce sed condimentum dolor, nec aliquet ante.
+            Curabitur ullamcorper arcu sed nisl sollicitudin vestibulum. Aenean
+            sodales consectetur ante, vitae posuere enim imperdiet eget.
+          </p>
+          <Row justify="space-around">
+            <Col span={8}>
+              <Image src={imageUrl} alt="nature" width={500} height={500} />
+            </Col>
+            <Col span={8}>
+              <img src={imageUrl} alt="nature" width={500} height={500} />
+            </Col>
+          </Row>
+        </div>
       </div>
-    </main>
-
-    <footer>
-      <a href="https://zeit.co" target="_blank" rel="noopener noreferrer">
-        Powered by <img src="/zeit.svg" alt="ZEIT Logo" />
-      </a>
-    </footer>
-
-    <style jsx>
-      {`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}
-    </style>
-
-    <style jsx global>
-      {`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}
-    </style>
-  </div>
+    </Layout>
+    <Footer />
+  </Layout>
 );
 
 export default Home;
