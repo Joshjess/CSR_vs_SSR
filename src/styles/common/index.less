@@ -1,5 +1,7 @@
 @import '~antd/lib/style/index';
 
+@white: rgba(255, 255, 255, 0.9);
+
 .ant-layout {
   min-height: 100vh;
 }
@@ -14,7 +16,15 @@
 }
 
 .timer h2 {
-  color: rgba(255, 255, 255, 0.9);
+  color: @white;
+}
+
+.timer button {
+  color: @white;
+}
+
+.timer button:hover {
+  color: @white;
 }
 
 #navMenu {

@@ -1,8 +1,9 @@
 import React from 'react';
 import Navmenu from '@/components/common/Navmenu';
 import Layout, { Footer } from 'antd/lib/layout/layout';
-import { Typography } from 'antd';
+import { Typography, Button } from 'antd';
 import Content from '@/components/common/Content';
+import router from 'next/router';
 
 const { Paragraph, Title } = Typography;
 
@@ -27,6 +28,7 @@ const SSR: React.FC = () => {
           <Content environment="client" />
           <div className="timer">
             <Title level={2}>It took {pageLoadTime} to load this page</Title>
+            <Button onClick={router.reload}>Start measuring</Button>
           </div>
         </div>
       </Layout>

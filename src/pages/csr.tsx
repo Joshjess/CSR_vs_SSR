@@ -1,12 +1,14 @@
 import React from 'react';
 import Navmenu from '@/components/common/Navmenu';
 import Layout, { Footer } from 'antd/lib/layout/layout';
-import { Typography } from 'antd';
+import { Typography, Button } from 'antd';
 import dynamic from 'next/dynamic';
+import router from 'next/router';
 
 const Content = dynamic(() => import(`../components/common/Content`));
 
 const { Paragraph, Title } = Typography;
+
 let pageLoadTime = 0;
 
 const CSR: React.FC = () => {
@@ -28,6 +30,9 @@ const CSR: React.FC = () => {
           <Content environment="client" />
           <div className="timer">
             <Title level={2}>It took {pageLoadTime} to load this page</Title>
+            <Button type="primary" onClick={router.reload}>
+              Start measuring
+            </Button>
           </div>
         </div>
       </Layout>
