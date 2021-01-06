@@ -1,36 +1,55 @@
-@import "~antd/lib/style/index";
+@import '~antd/lib/style/index';
 
-.ant-layout{
-    height: 100vh;
+.ant-layout {
+  min-height: 100vh;
+}
+
+.image-div img {
+  display: block;
+  margin: 30px auto;
+}
+
+.timer {
+  text-align: center;
+}
+
+.timer h2 {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 #navMenu {
-    text-align: center;
+  text-align: center;
 }
+#title-header h1 {
+  margin-top: 25px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
 #title-header h2 {
-    color: rgba(255, 255, 255, 0.90); 
+  margin-top: 0px;
+  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.9);
 }
 
-#title-header{
-    width: 100%;
-    text-align: center;
-    
+#title-header {
+  width: 100%;
+  text-align: center;
 }
-
 
 .container {
-    width: 100%;
-    display: flex;
-    align-self: center;
-    margin: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  margin: 0 auto;
 }
 
 .make-container(@minWidth, @breakpoint) {
-    @media (min-width: @minWidth) {
-        .container {
-            max-width: @breakpoint;
-        }
+  @media (min-width: @minWidth) {
+    .container {
+      max-width: @breakpoint;
     }
+  }
 }
 
 .make-container(@screen-xs-min, @screen-xs);
@@ -38,4 +57,4 @@
 .make-container(@screen-md-min, @screen-md);
 .make-container(@screen-lg-min, @screen-lg);
 .make-container(@screen-xl-min, @screen-xl);
-.make-container(@screen-xxl-min, @screen-xxl); 
+.make-container(@screen-xxl-min, @screen-xxl);

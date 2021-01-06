@@ -21,10 +21,14 @@ export default function Navmenu({ page }: MenuProps) {
           <Link href="/">Home</Link>
         </Menu.Item>
         <Menu.Item key="2">
-          <Link href="/csr">CSR</Link>
+          <Link prefetch={false} href="/csr">
+            CSR
+          </Link>
         </Menu.Item>
         <Menu.Item key="3">
-          <Link href="/ssr">SSR</Link>
+          <Link prefetch={false} href="/ssr">
+            SSR
+          </Link>
         </Menu.Item>
         <Menu.Item key="4">
           <Link href="/frameworks">Frameworks</Link>

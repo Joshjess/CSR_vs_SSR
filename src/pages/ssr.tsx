@@ -1,15 +1,38 @@
 import React from 'react';
 import Navmenu from '@/components/common/Navmenu';
 import Layout, { Footer } from 'antd/lib/layout/layout';
+import { Typography } from 'antd';
+import Content from '@/components/common/Content';
 
-const SSR: React.FC = () => (
-  <Layout>
-    <Navmenu page={1} />
+const { Paragraph, Title } = Typography;
+
+let pageLoadTime = 0;
+
+const SSR: React.FC = () => {
+  if (typeof window !== `undefined`) {
+    const perfData = window.performance.timing;
+    pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+  }
+  return (
     <Layout>
-      <div className="container" />
+      <Navmenu page={3} />
+      <Layout>
+        <div className="container">
+          <div id="title-header">
+            <Title level={1}>Server Side Rendering</Title>
+            <Title level={2}>
+              Everyting on this page server side renderderd
+            </Title>
+          </div>
+          <Content environment="client" />
+          <div className="timer">
+            <Title level={2}>It took {pageLoadTime} to load this page</Title>
+          </div>
+        </div>
+      </Layout>
+      <Footer />
     </Layout>
-    <Footer />
-  </Layout>
-);
+  );
+};
 
 export default SSR;
