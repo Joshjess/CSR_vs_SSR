@@ -1,9 +1,27 @@
 import React from 'react';
-import type { AppProps } from 'next/app';
+import type { AppProps, NextWebVitalsMetric } from 'next/app';
 import Head from 'next/head';
+import { NextPage } from 'next';
 
 import '../styles/common/config.less';
 import '../styles/common/index.less';
+
+export function reportWebVitals(metric: NextWebVitalsMetric) {
+  switch (metric.name) {
+    case `Next.js-hydration`:
+      (window as any).RenderTime = metric.value;
+      console.log(`Hydration: ${metric.value}`);
+      break;
+    case `Next.js-route-change-to-render`:
+      // handle route-change to render results
+      break;
+    case `Next.js-render`:
+      console.log(`Render: ${metric.value}`);
+      break;
+    default:
+      break;
+  }
+}
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Typography } from 'antd';
 import Image from 'next/image';
+import fetchedText from 'api/common/index';
 
 const { Paragraph } = Typography;
 
@@ -9,8 +10,21 @@ const imageUrl = `https://images.pexels.com/photos/2440024/pexels-photo-2440024.
 type contentProps = {
   environment: string;
 };
+/*
+Page.getInitialProps = async (ctx) => {
+  const res = await fetch('https://api.github.com/repos/vercel/next.js');
+  const json = await res.json();
+  return { stars: json.stargazers_count };
+};
+*/
 
-export default function Content({ environment }: contentProps) {
+function Content({ environment }: contentProps) {
+  const [text, setText] = useState(``);
+  useEffect(() => {
+    (async function handle() {
+      setText(await fetchedText());
+    })();
+  });
   return (
     <div>
       <Paragraph>
@@ -21,21 +35,7 @@ export default function Content({ environment }: contentProps) {
         convallis pulvinar ac eget odio. Donec est ex, porta eget tincidunt in,
         laoreet nec diam.
       </Paragraph>
-      <Paragraph>
-        Suspendisse tellus sem, sollicitudin pulvinar odio eget, blandit
-        pharetra magna. Suspendisse lobortis mattis nisl, at sagittis dui
-        commodo et. Proin et erat eu dui semper auctor ut at dui. Maecenas nisl
-        neque, fermentum tincidunt fringilla quis, consequat sed nisl. Morbi non
-        justo purus. Etiam in tempor sapien. Nunc ornare nisi libero, non
-        maximus lorem vestibulum et. Mauris ullamcorper, nulla et vehicula
-        ullamcorper, nibh enim molestie massa, non rhoncus leo massa sit amet
-        lorem. Cras eleifend scelerisque porta. Fusce rutrum, risus eget
-        lobortis tempor, enim eros scelerisque quam, eget elementum purus erat
-        et nisl. Proin sit amet dolor at est sodales elementum ut quis ex. Fusce
-        sed condimentum dolor, nec aliquet ante. Curabitur ullamcorper arcu sed
-        nisl sollicitudin vestibulum. Aenean sodales consectetur ante, vitae
-        posuere enim imperdiet eget.
-      </Paragraph>
+      <Paragraph>{text}</Paragraph>
       <Paragraph>
         Duis nunc nisi, rhoncus eu libero viverra, tempus consequat massa.
         pellentesque purus at fringilla consectetur. Proin in dolor vitae justo
@@ -54,3 +54,5 @@ export default function Content({ environment }: contentProps) {
     </div>
   );
 }
+
+export default Content;
