@@ -31,12 +31,11 @@ export default function Navmenu({ page }: MenuProps) {
           </Link>
         </Menu.Item>
         <Menu.Item key="4">
-          <Link href="/frameworks">Frameworks</Link>
+          <Link prefetch={false} href="/ssg">
+            SSG
+          </Link>
         </Menu.Item>
         <Menu.Item key="5">
-          <Link href="/about">About</Link>
-        </Menu.Item>
-        <Menu.Item key="6">
           <Link href="/contact">Contact</Link>
         </Menu.Item>
       </Menu>

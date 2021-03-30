@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Typography } from 'antd';
 import Image from 'next/image';
-import fetchedText from 'api/common/index';
+import { GetServerSideProps } from 'next';
 
 const { Paragraph } = Typography;
 
@@ -9,22 +9,10 @@ const imageUrl = `https://images.pexels.com/photos/2440024/pexels-photo-2440024.
 
 type contentProps = {
   environment: string;
+  data: string;
 };
-/*
-Page.getInitialProps = async (ctx) => {
-  const res = await fetch('https://api.github.com/repos/vercel/next.js');
-  const json = await res.json();
-  return { stars: json.stargazers_count };
-};
-*/
 
-function Content({ environment }: contentProps) {
-  const [text, setText] = useState(``);
-  useEffect(() => {
-    (async function handle() {
-      setText(await fetchedText());
-    })();
-  });
+function Content({ environment, data }: contentProps) {
   return (
     <div>
       <Paragraph>
@@ -35,7 +23,7 @@ function Content({ environment }: contentProps) {
         convallis pulvinar ac eget odio. Donec est ex, porta eget tincidunt in,
         laoreet nec diam.
       </Paragraph>
-      <Paragraph>{text}</Paragraph>
+      <Paragraph data-testid="fetched-text">{data}</Paragraph>
       <Paragraph>
         Duis nunc nisi, rhoncus eu libero viverra, tempus consequat massa.
         pellentesque purus at fringilla consectetur. Proin in dolor vitae justo

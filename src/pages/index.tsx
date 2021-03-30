@@ -15,17 +15,15 @@ const Home: React.FC = () => (
     <Layout>
       <div className="container">
         <div id="title-header">
-          <Title level={1}>
-            Client Side Rendering <br /> vs <br /> Server Side Rendering
-          </Title>
+          <Title level={1}>CSR vs SSR vs SSG</Title>
         </div>
         <Paragraph>
-          Duis nunc nisi, rhoncus eu libero viverra, tempus consequat massa.
-          Fusce pellentesque purus at fringilla consectetur. Proin in dolor
-          vitae justo vulputate suscipit nec non arcu. Donec dapibus dui non
-          augue aliquet ultricies. Nullam a sollicitudin lacus. Aliquam a in
-          metus convallis pulvinar ac eget odio. Donec est ex, porta eget eget
-          tincidunt in, laoreet nec diam.
+          Welcom to my website! I made this website to educate people on the
+          topic of different React rendering methods. The rendering methods i
+          will talk about on this website are Client Side Rendering(SSG), Server
+          Side Rendering(SSR) and Static Site Generation(SSG). This website is
+          made up of different pages one for each rendering method the page is
+          also renderd using the coresponing method.
         </Paragraph>
         <Paragraph>
           Suspendisse tellus sem, sollicitudin pulvinar odio eget, blandit

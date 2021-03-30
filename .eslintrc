@@ -3,6 +3,7 @@
     "browser": true,
     "es6": true
   },
+  "import/no-extraneous-dependencies": ["error", {"devDependencies": "true"},
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -17,7 +18,12 @@
   "plugins": ["import", "jsx-a11y", "react", "react-hooks", "prettier"],
   "extends": ["airbnb", "eslint-config-prettier", "prettier/react"],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "camelcase": "off",
     "import/prefer-default-export": "off",
     "react/prop-types": "off",
