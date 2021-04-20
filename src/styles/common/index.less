@@ -47,11 +47,14 @@
 }
 
 .container {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-self: flex-start;
   margin: 0 auto;
+}
+.paragraph {
+  width: clamp(45ch, 50%, 75ch);
+  margin: auto;
 }
 
 .make-container(@minWidth, @breakpoint) {
