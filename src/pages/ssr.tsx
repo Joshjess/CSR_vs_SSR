@@ -6,7 +6,7 @@ import Content from '@/components/common/Content';
 import fetchedText from 'api/common/index';
 import { GetServerSideProps } from 'next';
 
-const { Paragraph, Title } = Typography;
+const { Title } = Typography;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const data: string = await fetchedText();

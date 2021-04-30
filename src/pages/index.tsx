@@ -1,11 +1,10 @@
 import React from 'react';
-import Head from 'next/head';
 import Navmenu from '@/components/common/Navmenu';
 import Layout, { Footer } from 'antd/lib/layout/layout';
-import Image from 'next/image';
-import { Typography, Row, Col } from 'antd';
-
-const imageUrl = `https://images.pexels.com/photos/754949/pexels-photo-754949.jpeg?cs=srgb&dl=pexels-simon-matzinger-754949.jpg&fm=jpg`;
+import CSR from '../assets/image/CSR.png';
+import SSR from '../assets/image/SSR.png';
+import SSG from '../assets/image/SSG.png';
+import { Col, Row, Typography } from 'antd';
 
 const { Title, Paragraph } = Typography;
 
@@ -37,22 +36,69 @@ const Home: React.FC = () => (
           blank page with links to JavaScript code. The JavaScript code gets
           executed on the browser and renders the HTML elements.
         </Paragraph>
-        <Title level={5}>Pros</Title>
-        <ul>
-          <li>Easy in development</li>
-          <li>Low server load</li>
-        </ul>
-        <Title level={5}>Cons</Title>
-        <ul>
-          <li>Bad SEO performance out of the box</li>
-          <li>Longer initial rendering time</li>
-        </ul>
-        <Row justify="space-around">
-          <Col span={8}>
-            <Image src={imageUrl} alt="nature" width={500} height={500} />
+        <img src={CSR}></img>
+        <Row justify="center">
+          <Col xs={10} md={8} lg={6}>
+            <Title level={5}>Pros</Title>
+            <ul>
+              <li>Easy in development</li>
+              <li>Low server load</li>
+            </ul>
           </Col>
-          <Col span={8}>
-            <img src={imageUrl} alt="nature" width={500} height={500} />
+          <Col xs={10} md={8} lg={6}>
+            <Title level={5}>Cons</Title>
+            <ul>
+              <li>Bad SEO performance out of the box</li>
+              <li>Longer initial rendering time</li>
+            </ul>
+          </Col>
+        </Row>
+        <Title level={3}>Server Side Rendering</Title>
+        <Paragraph className="paragraph">
+          Server side rendering works different the rendering process does not
+          happen on the client side but on the server side. The JavaScript codes
+          gets executed on server and HTML page get’s renderd on the server and
+          send to the client.
+        </Paragraph>
+        <img src={SSR}></img>
+        <Row justify="center">
+          <Col xs={10} md={8} lg={6}>
+            <Title level={5}>Pros</Title>
+            <ul>
+              <li>More SEO friendly</li>
+              <li>No client side fetching</li>
+            </ul>
+          </Col>
+          <Col xs={10} md={8} lg={6}>
+            <Title level={5}>Cons</Title>
+            <ul>
+              <li>More difficult in development</li>
+              <li>Longer time to first byte</li>
+            </ul>
+          </Col>
+        </Row>
+        <Title level={3}>Static Site Generation</Title>
+        <Paragraph className="paragraph">
+          The last method that will be explained is Static Site Generation.
+          Using this method, a static page gets generated at build time. This
+          especially nice for website that do not have a lot of changing
+          content.
+        </Paragraph>
+        <img src={SSG}></img>
+        <Row justify="center">
+          <Col xs={10} md={8} lg={6}>
+            <Title level={5}>Pros</Title>
+            <ul>
+              <li>SEO friendly</li>
+              <li>Very fast</li>
+            </ul>
+          </Col>
+          <Col xs={10} md={8} lg={6}>
+            <Title level={5}>Cons</Title>
+            <ul>
+              <li>No dynamic data</li>
+              <li>Needs to be rebuild when data changes</li>
+            </ul>
           </Col>
         </Row>
       </div>

@@ -35,9 +35,6 @@ export default function Navmenu({ page }: MenuProps) {
             SSG
           </Link>
         </Menu.Item>
-        <Menu.Item key="5">
-          <Link href="/contact">Contact</Link>
-        </Menu.Item>
       </Menu>
     </Header>
   );
